@@ -38,14 +38,24 @@ class Set {
     }
 
 
-    union(otherSet) {
+    union(set) {
         const newSet = new Set();
         this.values().forEach(value => {
             newSet.add(value);
         })
-        otherSet.values().forEach(value => {
+        set.values().forEach(value => {
             newSet.add(value)
         })
         return newSet
     }
+
+    intersection (set){
+        const newSet = new Set();
+        set.values().forEach(value => {
+          if (this.has(value)){
+            newSet.add(value)
+          }
+        })
+      return newSet;
+      }
 }
