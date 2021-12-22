@@ -2,37 +2,50 @@
 
 class Set {
     constructor() {
-      // Dictionary will hold the items of our set
-      this.dictionary = {};
+        // Dictionary will hold the items of our set
+        this.dictionary = {};
     }
-  
+
     // This method will check for the presence of an element and return true or false
     has(element) {
-      return this.dictionary[element] !== undefined;
+        return this.dictionary[element] !== undefined;
     }
-  
+
     // This method will return all the values in the set
     values() {
-      return Object.values(this.dictionary);
+        return Object.values(this.dictionary);
     }
-  
-    add (element) {
-      if (!this.has(element)){
-     this.dictionary[element] = element;
-     return true
-      } else {
-      return false
-    }}
-  
+
+    add(element) {
+        if (!this.has(element)) {
+            this.dictionary[element] = element;
+            return true
+        } else {
+            return false
+        }
+    }
+
     remove(element) {
-      if (this.has(element)){
-        delete this.dictionary[element];
-        return true
-      }
-      else {return false}
+        if (this.has(element)) {
+            delete this.dictionary[element];
+            return true
+        }
+        else { return false }
     }
-  
+
     size() {
-      return Object.keys(this.dictionary).length
+        return Object.keys(this.dictionary).length
     }
-  }
+
+
+    union(otherSet) {
+        const newSet = new Set();
+        this.values().forEach(value => {
+            newSet.add(value);
+        })
+        otherSet.values().forEach(value => {
+            newSet.add(value)
+        })
+        return newSet
+    }
+}
