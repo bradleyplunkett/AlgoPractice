@@ -49,13 +49,14 @@ class Set {
         return newSet
     }
 
-    intersection (set){
+    intersection(set) {
         const newSet = new Set();
         set.values().forEach(value => {
-          if (this.has(value)){
-            newSet.add(value)
-          }
+            if (this.has(value)) {
+                newSet.add(value)
+            }
         })
-      return newSet;
-      }
+        return newSet;
+    }
+
 }
