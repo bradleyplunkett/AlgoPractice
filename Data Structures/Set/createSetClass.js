@@ -52,22 +52,33 @@ class Set {
     intersection(set) {
         const newSet = new Set();
         this.values().forEach(value => {
-          if (set.dictionary[value]){
-            newSet.add(value);
-          }
-      })
-      console.log(newSet)
-      return newSet;
-      }
+            if (set.dictionary[value]) {
+                newSet.add(value);
+            }
+        })
+        console.log(newSet)
+        return newSet;
+    }
 
-difference(set) {
+    difference(set) {
         const newSet = new Set();
         this.values().forEach(value => {
-          if (!set.dictionary[value]){
-            newSet.add(value);
-          }
-      })
-      console.log(newSet)
-      return newSet;
-      }
+            if (!set.dictionary[value]) {
+                newSet.add(value);
+            }
+        })
+        console.log(newSet)
+        return newSet;
+    }
+
+    isSubsetOf(set) {
+        let isSubset = true;
+        this.values().forEach(value => {
+            if (!set.dictionary[value]) {
+                isSubset = false
+            }
+        })
+        return isSubset;
+
+    }
 }
