@@ -59,4 +59,15 @@ class Set {
       console.log(newSet)
       return newSet;
       }
+
+difference(set) {
+        const newSet = new Set();
+        this.values().forEach(value => {
+          if (!set.dictionary[value]){
+            newSet.add(value);
+          }
+      })
+      console.log(newSet)
+      return newSet;
+      }
 }
