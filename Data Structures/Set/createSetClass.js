@@ -51,12 +51,12 @@ class Set {
 
     intersection(set) {
         const newSet = new Set();
-        set.values().forEach(value => {
-            if (this.has(value)) {
-                newSet.add(value)
-            }
-        })
-        return newSet;
-    }
-
+        this.values().forEach(value => {
+          if (set.dictionary[value]){
+            newSet.add(value);
+          }
+      })
+      console.log(newSet)
+      return newSet;
+      }
 }
